@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Photography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            color: #fff;
+            background: url('https://i.pinimg.com/originals/e0/bf/ef/e0bfefa91a592a8a43e657a2ddcf2ecc.jpg') no-repeat center center fixed;
+            background-size: cover;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            background-color: rgba(1, 43, 67, 0.7); 
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            z-index: 1000; 
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 16px;
+            font-size: 1.2em;
+        }
+
+        .login-signup {
+            font-family: 'Pacifico', cursive;
+            font-size: 1.4em;
+            color: rgba(1, 22, 30, 0.97);
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            text-align: center;
+            padding: 50px 100px;
+            position: relative;
+        }
+
+        .intro h1 {
+            font-size: 5em;
+            margin-bottom: 20px;
+            margin-top: 8px;
+            font-family: 'Great Vibes', cursive;
+        }
+
+        .intro p {
+            font-size: 1.5em;
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .nav-boxes {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+        }
+
+        .nav-box {
+            background-color: rgba(1, 43, 67, 0.7);
+            width: 100px;
+            height: 100px;
+            margin: 100px 50px;
+            text-align: center;
+            border-radius: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            transition: transform 0.3s;
+        }
+
+        .nav-box:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-box i {
+            font-size: 2em;
+            margin-bottom: 10px;
+            transition: transform 0.3s;
+        }
+
+        .nav-box i:hover {
+            transform: rotate(360deg);
+        }
+
+        .nav-box a {
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+        }
+
+        .section {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .section:nth-child(odd) .box {
+            order: 2;
+        }
+
+        .section:nth-child(odd) .content {
+            order: 1;
+            text-align: right;
+        }
+
+        .box {
+            flex: 1;
+            padding: 20px;
+            margin: 0 20px;
+            text-align: center;
+            border-radius: 15px;
+        }
+
+        .content {
+            flex: 2;
+            padding: 20px;
+            border-radius: 15px;
+        }
+
+        .content h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            color: #ffb6c1;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            max-width: 800px;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            color: #ffebcd;
+        }
+
+        .content img {
+            width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 60px;
+            transition: all 0.3s;
+        }
+
+        .content img:hover {
+            border-radius: 10px;
+            transform: scale(1.05);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-now {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: rgba(1, 43, 67, 0.7);
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .book-now:hover {
+            background-color: rgb(16, 1, 74);
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: rgba(1, 43, 67, 0.7);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(1, 43, 67, 0.9);
+            min-width: 200px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            left: 0;
+            text-align: left;
+        }
+
+        .dropdown-content a {
+            color: white;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: rgba(1, 22, 30, 0.9);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: rgba(1, 22, 30, 0.9);
+        }
+
+        .hamburger {
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-left: 16px;
+            color: white;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="dropdown">
+            <span class="hamburger"><i class="fas fa-bars"></i></span>
+            <div class="dropdown-content">
+                <a href="#wedding-photography">Wedding Photography</a>
+                <a href="#candid-photography">Candid Photography</a>
+                <a href="#couple-photoshoot">Couple Photoshoot</a>
+                <a href="#digital-studio">Digital Studio</a>
+                <a href="#baby-shoots">Baby Shoots</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#login" class="login-signup"><i class="fas fa-user"></i> Login/Signup</a>
+        </div>
+    </nav>
+
+    <div class="intro" id="home">
+        <h1>Hello Photography</h1>
+        <p>Capturing your most precious moments with elegance and style.</p>
+    </div>
+
+    <div class="nav-boxes">
+        <div class="nav-box">
+            <a href="#home"><i class="fas fa-home"></i><br> Home</a>
+        </div>
+        <div class="nav-box">
+            <a href="#our-works"><i class="fas fa-camera"></i><br> Our Works</a>
+        </div>
+        <div class="nav-box">
+            <a href="#about"><i class="fas fa-info-circle"></i><br> About Us</a>
+        </div>
+        <div class="nav-box">
+            <a href="#contact"><i class="fas fa-phone"></i><br> Contact</a>
+        </div>
+    </div>
+
+    <div class="section" id="wedding-photography">
+        <div class="box">
+            <h2>Wedding Photography</h2>
+            <p>Capturing the most beautiful moments of your special day with elegance and style. Our wedding photography ensures that every cherished memory is preserved forever.</p>
+            <a href="#book" class="book-now">Book Now</a>
+        </div>
+        <div class="content right">
+            <img src="https://th.bing.com/th/id/R.b3511f98602f6206da1a4ef59e23ea69?rik=pDqLYboXGL9zfQ&riu=http%3a%2f%2fslawawalczak.com%2fwp-content%2fuploads%2f2018%2f12%2fLuxury-Indian-Wedding-Photography-London-Destination-8.jpg&ehk=FGCGdnsx26B0RPzBWBVGulgtl3VBuMMVGdyCO66Q8ZY%3d&risl=&pid=ImgRaw&r=0" alt="Wedding Photography">
+        </div>
+    </div>
+
+    <div class="section" id="candid-photography">
+        <div class="box">
+            <h2>Candid Photography</h2>
+            <p>Natural and spontaneous, our candid photography captures genuine emotions and real moments, giving you memories that are true to life.</p>
+            <a href="#book" class="book-now">Book Now</a>
+        </div>
+        <div class="content left">
+            <img src="https://southindianactress.in/wp-content/uploads/2020/10/Meenakshi-Dinesh-7.jpg" alt="Candid Photography">
+        </div>
+    </div>
+
+    <div class="section" id="couple-photoshoot">
+        <div class="box">
+            <h2>Couple Photoshoot</h2>
+            <p>Celebrate your love with a couple photoshoot that highlights your unique bond and the joy you share together. Perfect for engagements, anniversaries, or just because.</p>
+            <a href="#book" class="book-now">Book Now</a>
+        </div>
+        <div class="content right">
+            <img src="https://i.pinimg.com/originals/df/83/69/df83690078d4726c28527267f82d3320.jpg" alt="Couple Photoshoot">
+        </div>
+    </div>
+
+    <div class="section" id="digital-studio">
+        <div class="box">
+            <h2>Digital Studio</h2>
+            <p>Our state-of-the-art digital studio offers the best in professional photography, with advanced equipment and techniques to ensure stunning results every time.</p>
+            <a href="#book" class="book-now">Book Now</a>
+        </div>
+        <div class="content left">
+            <img src="https://www.bestindianexports.com/images/new/home/img/7.jpg" alt="Digital Studio">
+        </div>
+    </div>
+
+    <div class="section" id="baby-shoots">
+        <div class="box">
+            <h2>Baby Shoots</h2>
+            <p>Capture the precious moments of your baby's early days with our baby shoots. We create beautiful, timeless portraits that you'll treasure forever.</p>
+            <a href="#book" class="book-now">Book Now</a>
+        </div>
+        <div class="content right">
+            <img src="https://www.lineandroots.com/wp-content/uploads/2018/04/01-orange-county-newborn-baby-photography-1.jpg" alt="Baby Shoots">
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Photography. All rights reserved.</p>
+    </footer>
+</body>
+</html>
